@@ -4,13 +4,32 @@
 	<title> FSDWBC 04 </title>
 
 	<link href="stil.css" rel="stylesheet" type="text/css">
-	<script src="skripta.js"></script> 
+	<!-- css cheat sheet: http://www.lesliefranke.com/files/reference/csscheatsheet.html -->
+	<script src="angular.js"></script>
+	<!-- naše skripte se moraju učitati nakon angulara jer ga tu koristimo  -->
+	<script src="skripta.js"></script>
 </head>
-<body>
+<body ng-app="app1" ng-controller="homeController">
 	<!-- u body ide sadržaj stranice -->
 	<!-- lista svih tagova: http://www.simplehtmlguide.com/cheatsheet.php -->
 
-	<h1 id="glavniNaslov">Naslov</h1>
+	<!-- možemo ili prikazivati sadržaj neke varijable u $scope objektu kontrolera... -->
+	{{ varijabla }}
+	<!-- ili izvršavati bilo kakve javascript operacije -->
+	{{ 2 + 2 }}
+
+	<br>
+	Unesi ime: <br>
+	<input type="text" ng-model="ime">
+	<input type="checkbox" ng-model="isClicked">
+
+	<button ng-click="   ime = 'tomi'  ">
+		KLIKNI TU AKO SI TOMI
+	</button>
+
+	{{ isClicked }}
+
+	<h1 id="glavniNaslov"> {{ ime }} </h1>
 	<h1 class="zeleno">Naslov 1</h1>
 	<h1 >Naslov 2</h1>
 
@@ -24,6 +43,5 @@
 
 	<!-- slike moraju imati src atribut koji govori odakle prikazati sliku -->
 	<img src="download.jpg">
-
 </body>
 </html>
