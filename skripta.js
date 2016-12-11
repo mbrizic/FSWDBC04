@@ -1,14 +1,19 @@
 // dokumentacija na https://docs.angularjs.org/api
 
-var appModule = angular.module("app1", []);
+var appModule = angular.module("app1", ["ngRoute"]);
 
-appModule.controller("homeController", function ($scope) {
-	// kod koji se bude nalazio unutar tijela ove funkcije je kod 'homeController' kontrolera
+appModule.config(function ($routeProvider, $locationProvider) {
 
-	$scope.ime = "diana";
-
-	$scope.varijabla = "neki tekst za prikazati u viewu.";
-	
-	$scope.isClicked = false;
-
-});
+	$routeProvider.when("/home", {
+		templateUrl: "home.html",
+		controller: "homeController"
+	}).when("/about", {
+		templateUrl: "about.html",
+		controller: "aboutController"
+	}).when("/help", {
+		templateUrl: "help.html",
+		controller: "helpController"
+	}).otherwise({
+        redirectTo: '/home'
+    });
+})
