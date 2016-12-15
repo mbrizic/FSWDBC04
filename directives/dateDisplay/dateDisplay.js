@@ -3,8 +3,6 @@ appModule.directive("dateDisplay", function(){
 	function dateDisplayController($scope) {
 
 		$scope.dateNow = new Date();
-
-
 	}
 
 	//object literal koji vraćamo se naziva directive definition object
@@ -13,7 +11,10 @@ appModule.directive("dateDisplay", function(){
 		controller: dateDisplayController,
 		templateUrl: "directives/dateDisplay/dateDisplay.html",
 		scope: {
-			additionalText: "@"
+			//kaže se da bindamo parametar na direktivu
+			additionalText: "@",
+			// '=', vrijedi two way data binding
+			editableUser: "="
 		}
 	};
 
