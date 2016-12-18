@@ -4,6 +4,17 @@
 
 	ulogiran je {{ user.name }}
 
+	currency: {{ currency.base }} -- {{ currency.date }}
+
+	<h2> {{ errorMessage  }}</h2>
+	<input type="text" ng-model="unosValuta">
+
+	<button ng-click="fetchCurrencyData()"> Učitaj ponovo </button>
+
+	<div ng-repeat="(valuta, vrijednost ) in currency.rates">
+		{{ currency.base }} - {{ vrijednost }} {{ valuta }}
+	</div>
+
 	<date-display additional-text="Juevntus vodi" editable-user="user">
 		
 	</date-display>
